@@ -27,7 +27,7 @@ vertex VertexIO vertexMixer(device float2 *pPosition [[ buffer(0) ]],
     outVertex.position.xy  = pPosition[index];
     outVertex.position.z = 0;
     outVertex.position.w = 1.0;
-	
+    
 	// Convert texture position to texture coordinates
     outVertex.textureCoord.xy = 0.5 + float2(0.5, -0.5) * outVertex.position.xy;
 
@@ -43,7 +43,8 @@ fragment half4 fragmentMixer(VertexIO         inputFragment    [[ stage_in ]],
     half4 input0 = mixerInput0.sample(samplr, inputFragment.textureCoord);
     half4 input1 = mixerInput1.sample(samplr, inputFragment.textureCoord);
 	
-	half4 output = mix(input0, input1, half(mixerParameters.mixFactor));
-
+//    half4 output = mix(input0, input1, half(mixerParameters.mixFactor));
+    half4 output = mix(input0, input1, half(1.0));
+    
     return output;
 }

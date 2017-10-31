@@ -19,6 +19,7 @@
 		A353E8EE1F8E97FE006E18D2 /* MetalPerformanceShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A353E8EB1F8E97FE006E18D2 /* MetalPerformanceShaders.framework */; };
 		A39086DC1FA11EB800153DFB /* DepthUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39086DB1FA11EB800153DFB /* DepthUtility.swift */; };
 		A39086DE1FA1267300153DFB /* ghost.png in Resources */ = {isa = PBXBuildFile; fileRef = A39086DD1FA1217800153DFB /* ghost.png */; };
+		A3FE8B881FA7999A0024D117 /* IntoDarknessFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FE8B871FA7999A0024D117 /* IntoDarknessFilter.swift */; };
 		E422DFC01CEF894F0047D7A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E422DFBE1CEF894F0047D7A4 /* Main.storyboard */; };
 		E422DFC21CEF894F0047D7A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E422DFC11CEF894F0047D7A4 /* Assets.xcassets */; };
 		E422DFC51CEF894F0047D7A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E422DFC31CEF894F0047D7A4 /* LaunchScreen.storyboard */; };
@@ -46,6 +47,7 @@
 		A353E8EB1F8E97FE006E18D2 /* MetalPerformanceShaders.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalPerformanceShaders.framework; path = System/Library/Frameworks/MetalPerformanceShaders.framework; sourceTree = SDKROOT; };
 		A39086DB1FA11EB800153DFB /* DepthUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthUtility.swift; sourceTree = "<group>"; };
 		A39086DD1FA1217800153DFB /* ghost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ghost.png; sourceTree = "<group>"; };
+		A3FE8B871FA7999A0024D117 /* IntoDarknessFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntoDarknessFilter.swift; sourceTree = "<group>"; };
 		C221CC7AB4DD7C36524EC109 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		E414FC6C1D5921FD0007C979 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E422DFB71CEF894F0047D7A4 /* SilhouetteCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilhouetteCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +141,7 @@
 				261FA1F61E945EEA00BE8D47 /* VideoMixer.swift */,
 				267ED84F1ED7965B00898078 /* minMaxFromBuffer.h */,
 				267ED84E1ED7965B00898078 /* minMaxFromBuffer.m */,
+				A3FE8B871FA7999A0024D117 /* IntoDarknessFilter.swift */,
 				2672370F1E79BFD1003D2EAA /* Shaders */,
 				E422DFBE1CEF894F0047D7A4 /* Main.storyboard */,
 				E422DFC11CEF894F0047D7A4 /* Assets.xcassets */,
@@ -246,6 +249,7 @@
 				2672370C1E79BF6E003D2EAA /* RosyEffect.metal in Sources */,
 				2633CF1D1E7C65D500FC80E1 /* DepthToGrayscaleConverter.swift in Sources */,
 				2672370E1E79BFC0003D2EAA /* DepthToGrayscale.metal in Sources */,
+				A3FE8B881FA7999A0024D117 /* IntoDarknessFilter.swift in Sources */,
 				E46129041CF4C0B8004FE176 /* PreviewMetalView.swift in Sources */,
 				E422DFCE1CEF8AF50047D7A4 /* CameraViewController.swift in Sources */,
 			);

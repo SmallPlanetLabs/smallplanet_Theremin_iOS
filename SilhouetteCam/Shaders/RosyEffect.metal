@@ -19,7 +19,13 @@ kernel void rosyEffect(texture2d<half, access::read>  inputTexture  [[ texture(0
 	}
 	
 	half4 inputColor = inputTexture.read(gid);
-	
+    
+    //
+    if (inputColor.a == 0) {
+    
+    }
+    
+    
 	// Set the output color to the input color minus the green component
 	half4 outputColor = half4(inputColor.r, 0.0, inputColor.b, 1.0);
 	

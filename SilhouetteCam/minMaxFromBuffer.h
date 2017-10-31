@@ -16,5 +16,5 @@ void minMaxFromPixelBuffer(CVPixelBufferRef pixelBuffer, float* minValue, float*
 
 // rename
 NSArray* pixelConfigurationArrayFromDepthPixelBuffer(CVPixelBufferRef pixelBuffer, MTLPixelFormat pixelFormat, float depthThreshold, uint32_t* bytesPerPixel);
-
+float calculateAverage(float *array, int count);
 #endif /* minMaxFromBuffer_h */

@@ -52,6 +52,12 @@ struct RGBA32: Equatable {
 
 class DepthUtility {
  
+    static var context : CGContext?
+    
+    class func createImageFromCIKernelFilter(depthPixelBuffer: CVPixelBuffer, pixelFormat: MTLPixelFormat, silhouetteThreshold:Float, completionHandler: @escaping (UIImage?, String?) -> Void) {
+        
+    }
+
     class func createImage(depthPixelBuffer: CVPixelBuffer, pixelFormat: MTLPixelFormat, silhouetteThreshold:Float, completionHandler: @escaping (UIImage?, String?) -> Void) {
     
         // if i have an array of points 320x240
@@ -89,11 +95,15 @@ class DepthUtility {
                 return
             }
             
-            guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo) else {
+            if (context != nil) {
+                context = CGContext(data: nil, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo)
+            }
+            
+            guard let context = context else {
                 completionHandler(nil, "unable to create context")
                 return
             }
-            
+
             guard let buffer = context.data else {
                 completionHandler(nil, "unable to get context data")
                 return
