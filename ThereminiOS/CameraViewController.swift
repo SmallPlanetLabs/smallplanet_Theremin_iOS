@@ -54,7 +54,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, AVC
     // Communicate with the session and other session objects on this queue.
     private let sessionQueue = DispatchQueue(label: "session queue", attributes: [], autoreleaseFrequency: .workItem)
     
-    private var videoDeviceInput: AVCaptureDeviceInput!
+    private var videoDeviceInput : AVCaptureDeviceInput!
     
     private let dataOutputQueue = DispatchQueue(label: "video data queue", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
     
@@ -66,9 +66,9 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, AVC
     
     private let photoOutput = AVCapturePhotoOutput()
     
-    private let filterRenderers: [FilterRenderer] = [RosyMetalRenderer(), RosyCIRenderer()]
+    private let filterRenderers : [FilterRenderer] = [RosyMetalRenderer(), RosyCIRenderer()]
     
-    private let photoRenderers: [FilterRenderer] = [RosyMetalRenderer(), RosyCIRenderer()]
+    private let photoRenderers : [FilterRenderer] = [RosyMetalRenderer(), RosyCIRenderer()]
     
     private let videoDepthMixer = VideoMixer()
     
@@ -97,12 +97,23 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, AVC
                                                                                mediaType: .video,
                                                                                position: .unspecified)
     
+    ///------
+    
+    private var oscillators = [VWWSynthesizer]()
+    
     private var statusBarOrientation: UIInterfaceOrientation = .portrait
     
     // MARK: - View Controller Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for i in 0...3 {
+            let synthesizer = VWWSynthesizer(amplitude: 0.2, frequencyLeft: 100, frequencyRight: 100)
+            synthesizer!.setWaveType(VWWWaveTypeSine)
+            synthesizer?.start()
+            oscillators.append(synthesizer!)
+        }
         
         // Disable UI. The UI is enabled if and only if the session starts running.
         cameraButton.isEnabled = false
@@ -1010,6 +1021,50 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, AVC
         guard let depthPixelBuffer = videoDepthConverter.render(pixelBuffer: depthData.depthDataMap) else {
             print("Unable to process depth")
             return
+        }
+        
+        let depthA = averageFromDepthPixelBuffer(depthData.depthDataMap, videoDepthConverter.inputTextureFormat)
+        
+        let maxDepth : Float = 3.0;
+        let minDepth : Float = 0.5;
+
+        if (depthA > minDepth && depthA < maxDepth) {
+
+            // make between 0 and 1
+            let normalizedDepthValue = (depthA - minDepth)/(maxDepth - minDepth);
+
+            NSLog("normalized = %.2f", normalizedDepthValue);
+
+            let maxFrequency : Float = 3000;
+            let minimumFrequncy : Float = 100;
+
+            let newFundamental = ((maxFrequency - minimumFrequncy) * normalizedDepthValue) + minimumFrequncy;
+            var newFrequency = VWWSynthesizerNotes.getClosestNote(forFrequency: newFundamental, in: VWWKeyTypeCMajor);
+
+            NSLog("newFrequency = \(newFrequency)");
+
+            var i = 0;
+            for synthesizer : VWWSynthesizer in self.oscillators {
+
+                synthesizer.setMuted(false);
+                
+                if (i == 1) {
+                    newFrequency = newFrequency * (5/4);
+                } else if (i == 2) {
+                    newFrequency = newFrequency * (3/2);
+                }
+
+                synthesizer.setFrequencyLeft(newFrequency);
+                synthesizer.setFrequencyRight(newFrequency);
+
+                i += 1;
+            }
+
+//            NSLog("averageDepth = \(averageDepth)")
+        } else {
+            for synthesizer : VWWSynthesizer in self.oscillators {
+                synthesizer.setMuted(true);
+            }
         }
         
         currentDepthPixelBuffer = depthPixelBuffer

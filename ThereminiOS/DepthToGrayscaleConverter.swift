@@ -19,7 +19,7 @@ class DepthToGrayscaleConverter: FilterRenderer {
     
     private(set) var outputFormatDescription: CMFormatDescription?
     
-    private var inputTextureFormat: MTLPixelFormat = .invalid
+    public var inputTextureFormat: MTLPixelFormat = .invalid
     
     private var outputPixelBufferPool: CVPixelBufferPool!
     

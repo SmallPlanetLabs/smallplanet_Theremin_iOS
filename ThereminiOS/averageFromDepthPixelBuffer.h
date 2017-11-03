@@ -14,6 +14,8 @@ Defines a function which extracts the smallest and largest values from a pixel b
 //----
 void minMaxFromPixelBuffer(CVPixelBufferRef pixelBuffer, float* minValue, float* maxValue, MTLPixelFormat pixelFormat);
 
+float averageFromDepthPixelBuffer(CVPixelBufferRef pixelBuffer, MTLPixelFormat pixelFormat);
+
 // rename
 NSArray* pixelConfigurationArrayFromDepthPixelBuffer(CVPixelBufferRef pixelBuffer, MTLPixelFormat pixelFormat, float depthThreshold, uint32_t* bytesPerPixel);
 float calculateAverage(float *array, int count);

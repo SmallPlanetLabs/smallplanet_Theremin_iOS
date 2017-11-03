@@ -13,10 +13,26 @@
 		2633CF1D1E7C65D500FC80E1 /* DepthToGrayscaleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2633CF1C1E7C65D500FC80E1 /* DepthToGrayscaleConverter.swift */; };
 		2672370C1E79BF6E003D2EAA /* RosyEffect.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2672370B1E79BF6E003D2EAA /* RosyEffect.metal */; };
 		2672370E1E79BFC0003D2EAA /* DepthToGrayscale.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2672370D1E79BFBF003D2EAA /* DepthToGrayscale.metal */; };
-		267ED8501ED7974A00898078 /* minMaxFromBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 267ED84E1ED7965B00898078 /* minMaxFromBuffer.m */; };
+		267ED8501ED7974A00898078 /* averageFromDepthPixelBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 267ED84E1ED7965B00898078 /* averageFromDepthPixelBuffer.m */; };
 		A353E8EC1F8E97FE006E18D2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A353E8E91F8E97FE006E18D2 /* Metal.framework */; };
 		A353E8ED1F8E97FE006E18D2 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A353E8EA1F8E97FE006E18D2 /* MetalKit.framework */; };
 		A353E8EE1F8E97FE006E18D2 /* MetalPerformanceShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A353E8EB1F8E97FE006E18D2 /* MetalPerformanceShaders.framework */; };
+		A369C7791FA90B1D003857F2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A369C7781FA90B1D003857F2 /* AudioToolbox.framework */; };
+		A369C77B1FA90B25003857F2 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A369C77A1FA90B25003857F2 /* CoreAudio.framework */; };
+		A369C7A81FA90D4B003857F2 /* VWWNormalizedSynthesizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A369C7A11FA90CFD003857F2 /* VWWNormalizedSynthesizer.mm */; };
+		A369C7A91FA90D4E003857F2 /* VWWSynthesizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A369C7A31FA90CFD003857F2 /* VWWSynthesizer.mm */; };
+		A369C7AA1FA90D4E003857F2 /* VWWSynthesizerGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A369C7A51FA90CFD003857F2 /* VWWSynthesizerGroup.m */; };
+		A369C7AB1FA90D59003857F2 /* VWWSynthesizerAV.m in Sources */ = {isa = PBXBuildFile; fileRef = A369C7931FA90CFD003857F2 /* VWWSynthesizerAV.m */; };
+		A369C7AC1FA90D59003857F2 /* VWWSynthesizerC.mm in Sources */ = {isa = PBXBuildFile; fileRef = A369C7951FA90CFD003857F2 /* VWWSynthesizerC.mm */; };
+		A369C7AD1FA90D59003857F2 /* VWWSynthesizerEffectNoteKey.m in Sources */ = {isa = PBXBuildFile; fileRef = A369C7981FA90CFD003857F2 /* VWWSynthesizerEffectNoteKey.m */; };
+		A369C7AE1FA90D59003857F2 /* VWWSynthesizerNotes.m in Sources */ = {isa = PBXBuildFile; fileRef = A369C79C1FA90CFD003857F2 /* VWWSynthesizerNotes.m */; };
+		A369C7AF1FA90D5F003857F2 /* VWWSynthesizerFileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A369C78B1FA90CFD003857F2 /* VWWSynthesizerFileSystem.m */; };
+		A369C7B01FA90D5F003857F2 /* VWWSynthesizerInput.mm in Sources */ = {isa = PBXBuildFile; fileRef = A369C78D1FA90CFD003857F2 /* VWWSynthesizerInput.mm */; };
+		A369C7B11FA90D5F003857F2 /* VWWSynthesizerInputAxis.mm in Sources */ = {isa = PBXBuildFile; fileRef = A369C78F1FA90CFD003857F2 /* VWWSynthesizerInputAxis.mm */; };
+		A369C7B21FA90D5F003857F2 /* VWWSynthesizerInputs.mm in Sources */ = {isa = PBXBuildFile; fileRef = A369C7911FA90CFD003857F2 /* VWWSynthesizerInputs.mm */; };
+		A369C7B31FA90D66003857F2 /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A369C77F1FA90CFD003857F2 /* CADebugMacros.cpp */; };
+		A369C7B41FA90D66003857F2 /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A369C7831FA90CFD003857F2 /* CAStreamBasicDescription.cpp */; };
+		A369C7B51FA90D66003857F2 /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A369C7851FA90CFD003857F2 /* CAXException.cpp */; };
 		A39086DC1FA11EB800153DFB /* DepthUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39086DB1FA11EB800153DFB /* DepthUtility.swift */; };
 		A39086DE1FA1267300153DFB /* ghost.png in Resources */ = {isa = PBXBuildFile; fileRef = A39086DD1FA1217800153DFB /* ghost.png */; };
 		A3FE8B881FA7999A0024D117 /* IntoDarknessFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FE8B871FA7999A0024D117 /* IntoDarknessFilter.swift */; };
@@ -39,18 +55,57 @@
 		2633CF1C1E7C65D500FC80E1 /* DepthToGrayscaleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthToGrayscaleConverter.swift; sourceTree = "<group>"; };
 		2672370B1E79BF6E003D2EAA /* RosyEffect.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = RosyEffect.metal; sourceTree = "<group>"; };
 		2672370D1E79BFBF003D2EAA /* DepthToGrayscale.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = DepthToGrayscale.metal; sourceTree = "<group>"; };
-		267ED84D1ED7965A00898078 /* SilhouetteCam-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SilhouetteCam-Bridging-Header.h"; sourceTree = "<group>"; };
-		267ED84E1ED7965B00898078 /* minMaxFromBuffer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = minMaxFromBuffer.m; sourceTree = "<group>"; };
-		267ED84F1ED7965B00898078 /* minMaxFromBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = minMaxFromBuffer.h; sourceTree = "<group>"; };
+		267ED84D1ED7965A00898078 /* ThereminiOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ThereminiOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		267ED84E1ED7965B00898078 /* averageFromDepthPixelBuffer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = averageFromDepthPixelBuffer.m; sourceTree = "<group>"; };
+		267ED84F1ED7965B00898078 /* averageFromDepthPixelBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = averageFromDepthPixelBuffer.h; sourceTree = "<group>"; };
 		A353E8E91F8E97FE006E18D2 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		A353E8EA1F8E97FE006E18D2 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		A353E8EB1F8E97FE006E18D2 /* MetalPerformanceShaders.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalPerformanceShaders.framework; path = System/Library/Frameworks/MetalPerformanceShaders.framework; sourceTree = SDKROOT; };
+		A369C7781FA90B1D003857F2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A369C77A1FA90B25003857F2 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		A369C77F1FA90CFD003857F2 /* CADebugMacros.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugMacros.cpp; sourceTree = "<group>"; };
+		A369C7801FA90CFD003857F2 /* CADebugMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		A369C7811FA90CFD003857F2 /* CADebugPrintf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CADebugPrintf.h; sourceTree = "<group>"; };
+		A369C7821FA90CFD003857F2 /* CAMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		A369C7831FA90CFD003857F2 /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		A369C7841FA90CFD003857F2 /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		A369C7851FA90CFD003857F2 /* CAXException.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		A369C7861FA90CFD003857F2 /* CAXException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
+		A369C7891FA90CFD003857F2 /* VWWSettingsKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSettingsKeys.h; sourceTree = "<group>"; };
+		A369C78A1FA90CFD003857F2 /* VWWSynthesizerFileSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerFileSystem.h; sourceTree = "<group>"; };
+		A369C78B1FA90CFD003857F2 /* VWWSynthesizerFileSystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWSynthesizerFileSystem.m; sourceTree = "<group>"; };
+		A369C78C1FA90CFD003857F2 /* VWWSynthesizerInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerInput.h; sourceTree = "<group>"; };
+		A369C78D1FA90CFD003857F2 /* VWWSynthesizerInput.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VWWSynthesizerInput.mm; sourceTree = "<group>"; };
+		A369C78E1FA90CFD003857F2 /* VWWSynthesizerInputAxis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerInputAxis.h; sourceTree = "<group>"; };
+		A369C78F1FA90CFD003857F2 /* VWWSynthesizerInputAxis.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VWWSynthesizerInputAxis.mm; sourceTree = "<group>"; };
+		A369C7901FA90CFD003857F2 /* VWWSynthesizerInputs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerInputs.h; sourceTree = "<group>"; };
+		A369C7911FA90CFD003857F2 /* VWWSynthesizerInputs.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VWWSynthesizerInputs.mm; sourceTree = "<group>"; };
+		A369C7921FA90CFD003857F2 /* VWWSynthesizerAV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerAV.h; sourceTree = "<group>"; };
+		A369C7931FA90CFD003857F2 /* VWWSynthesizerAV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWSynthesizerAV.m; sourceTree = "<group>"; };
+		A369C7941FA90CFD003857F2 /* VWWSynthesizerC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerC.h; sourceTree = "<group>"; };
+		A369C7951FA90CFD003857F2 /* VWWSynthesizerC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VWWSynthesizerC.mm; sourceTree = "<group>"; };
+		A369C7961FA90CFD003857F2 /* VWWSynthesizerDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerDefaults.h; sourceTree = "<group>"; };
+		A369C7971FA90CFD003857F2 /* VWWSynthesizerEffectNoteKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerEffectNoteKey.h; sourceTree = "<group>"; };
+		A369C7981FA90CFD003857F2 /* VWWSynthesizerEffectNoteKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWSynthesizerEffectNoteKey.m; sourceTree = "<group>"; };
+		A369C7991FA90CFD003857F2 /* VWWSynthesizerKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerKeys.h; sourceTree = "<group>"; };
+		A369C79A1FA90CFD003857F2 /* VWWSynthesizerMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerMath.h; sourceTree = "<group>"; };
+		A369C79B1FA90CFD003857F2 /* VWWSynthesizerNotes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerNotes.h; sourceTree = "<group>"; };
+		A369C79C1FA90CFD003857F2 /* VWWSynthesizerNotes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWSynthesizerNotes.m; sourceTree = "<group>"; };
+		A369C79F1FA90CFD003857F2 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		A369C7A01FA90CFD003857F2 /* VWWNormalizedSynthesizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWNormalizedSynthesizer.h; sourceTree = "<group>"; };
+		A369C7A11FA90CFD003857F2 /* VWWNormalizedSynthesizer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VWWNormalizedSynthesizer.mm; sourceTree = "<group>"; };
+		A369C7A21FA90CFD003857F2 /* VWWSynthesizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizer.h; sourceTree = "<group>"; };
+		A369C7A31FA90CFD003857F2 /* VWWSynthesizer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VWWSynthesizer.mm; sourceTree = "<group>"; };
+		A369C7A41FA90CFD003857F2 /* VWWSynthesizerGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerGroup.h; sourceTree = "<group>"; };
+		A369C7A51FA90CFD003857F2 /* VWWSynthesizerGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWSynthesizerGroup.m; sourceTree = "<group>"; };
+		A369C7A61FA90CFD003857F2 /* VWWSynthesizerTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerTypes.h; sourceTree = "<group>"; };
+		A369C7B61FA90D82003857F2 /* VWWUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VWWUtilities.h; path = ../../../Synthesizer/Synthesizer/VWWUtilities.h; sourceTree = "<group>"; };
 		A39086DB1FA11EB800153DFB /* DepthUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthUtility.swift; sourceTree = "<group>"; };
 		A39086DD1FA1217800153DFB /* ghost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ghost.png; sourceTree = "<group>"; };
 		A3FE8B871FA7999A0024D117 /* IntoDarknessFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntoDarknessFilter.swift; sourceTree = "<group>"; };
 		C221CC7AB4DD7C36524EC109 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		E414FC6C1D5921FD0007C979 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		E422DFB71CEF894F0047D7A4 /* SilhouetteCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilhouetteCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E422DFB71CEF894F0047D7A4 /* ThereminiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThereminiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E422DFBF1CEF894F0047D7A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E422DFC11CEF894F0047D7A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E422DFC41CEF894F0047D7A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,6 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A369C77B1FA90B25003857F2 /* CoreAudio.framework in Frameworks */,
+				A369C7791FA90B1D003857F2 /* AudioToolbox.framework in Frameworks */,
 				A353E8EC1F8E97FE006E18D2 /* Metal.framework in Frameworks */,
 				A353E8ED1F8E97FE006E18D2 /* MetalKit.framework in Frameworks */,
 				A353E8EE1F8E97FE006E18D2 /* MetalPerformanceShaders.framework in Frameworks */,
@@ -99,6 +156,8 @@
 		A353E8E81F8E97FE006E18D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A369C77A1FA90B25003857F2 /* CoreAudio.framework */,
+				A369C7781FA90B1D003857F2 /* AudioToolbox.framework */,
 				A353E8E91F8E97FE006E18D2 /* Metal.framework */,
 				A353E8EA1F8E97FE006E18D2 /* MetalKit.framework */,
 				A353E8EB1F8E97FE006E18D2 /* MetalPerformanceShaders.framework */,
@@ -106,11 +165,88 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A369C77C1FA90CFD003857F2 /* Synthesizer */ = {
+			isa = PBXGroup;
+			children = (
+				A369C7B61FA90D82003857F2 /* VWWUtilities.h */,
+				A369C77D1FA90CFD003857F2 /* Classes */,
+				A369C79F1FA90CFD003857F2 /* README.txt */,
+				A369C7A01FA90CFD003857F2 /* VWWNormalizedSynthesizer.h */,
+				A369C7A21FA90CFD003857F2 /* VWWSynthesizer.h */,
+				A369C7A11FA90CFD003857F2 /* VWWNormalizedSynthesizer.mm */,
+				A369C7A31FA90CFD003857F2 /* VWWSynthesizer.mm */,
+				A369C7A41FA90CFD003857F2 /* VWWSynthesizerGroup.h */,
+				A369C7A51FA90CFD003857F2 /* VWWSynthesizerGroup.m */,
+				A369C7A61FA90CFD003857F2 /* VWWSynthesizerTypes.h */,
+			);
+			name = Synthesizer;
+			path = ../../Theremin/Theremin/Synthesizer;
+			sourceTree = "<group>";
+		};
+		A369C77D1FA90CFD003857F2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A369C77E1FA90CFD003857F2 /* Apple */,
+				A369C7871FA90CFD003857F2 /* VWW */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A369C77E1FA90CFD003857F2 /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+				A369C77F1FA90CFD003857F2 /* CADebugMacros.cpp */,
+				A369C7801FA90CFD003857F2 /* CADebugMacros.h */,
+				A369C7811FA90CFD003857F2 /* CADebugPrintf.h */,
+				A369C7821FA90CFD003857F2 /* CAMath.h */,
+				A369C7831FA90CFD003857F2 /* CAStreamBasicDescription.cpp */,
+				A369C7841FA90CFD003857F2 /* CAStreamBasicDescription.h */,
+				A369C7851FA90CFD003857F2 /* CAXException.cpp */,
+				A369C7861FA90CFD003857F2 /* CAXException.h */,
+			);
+			path = Apple;
+			sourceTree = "<group>";
+		};
+		A369C7871FA90CFD003857F2 /* VWW */ = {
+			isa = PBXGroup;
+			children = (
+				A369C7881FA90CFD003857F2 /* ToBeRefactored */,
+				A369C7921FA90CFD003857F2 /* VWWSynthesizerAV.h */,
+				A369C7931FA90CFD003857F2 /* VWWSynthesizerAV.m */,
+				A369C7941FA90CFD003857F2 /* VWWSynthesizerC.h */,
+				A369C7951FA90CFD003857F2 /* VWWSynthesizerC.mm */,
+				A369C7961FA90CFD003857F2 /* VWWSynthesizerDefaults.h */,
+				A369C7971FA90CFD003857F2 /* VWWSynthesizerEffectNoteKey.h */,
+				A369C7981FA90CFD003857F2 /* VWWSynthesizerEffectNoteKey.m */,
+				A369C7991FA90CFD003857F2 /* VWWSynthesizerKeys.h */,
+				A369C79A1FA90CFD003857F2 /* VWWSynthesizerMath.h */,
+				A369C79B1FA90CFD003857F2 /* VWWSynthesizerNotes.h */,
+				A369C79C1FA90CFD003857F2 /* VWWSynthesizerNotes.m */,
+			);
+			path = VWW;
+			sourceTree = "<group>";
+		};
+		A369C7881FA90CFD003857F2 /* ToBeRefactored */ = {
+			isa = PBXGroup;
+			children = (
+				A369C7891FA90CFD003857F2 /* VWWSettingsKeys.h */,
+				A369C78A1FA90CFD003857F2 /* VWWSynthesizerFileSystem.h */,
+				A369C78B1FA90CFD003857F2 /* VWWSynthesizerFileSystem.m */,
+				A369C78C1FA90CFD003857F2 /* VWWSynthesizerInput.h */,
+				A369C78D1FA90CFD003857F2 /* VWWSynthesizerInput.mm */,
+				A369C78E1FA90CFD003857F2 /* VWWSynthesizerInputAxis.h */,
+				A369C78F1FA90CFD003857F2 /* VWWSynthesizerInputAxis.mm */,
+				A369C7901FA90CFD003857F2 /* VWWSynthesizerInputs.h */,
+				A369C7911FA90CFD003857F2 /* VWWSynthesizerInputs.mm */,
+			);
+			path = ToBeRefactored;
+			sourceTree = "<group>";
+		};
 		E422DFAE1CEF894F0047D7A4 = {
 			isa = PBXGroup;
 			children = (
 				E414FC6C1D5921FD0007C979 /* README.md */,
-				E422DFB91CEF894F0047D7A4 /* SilhouetteCam */,
+				E422DFB91CEF894F0047D7A4 /* ThereminiOS */,
 				E422DFB81CEF894F0047D7A4 /* Products */,
 				8F7DEDF83CEB2358D1CCC092 /* Configuration */,
 				F338657CC0FEDC6E66F03A1D /* LICENSE */,
@@ -121,14 +257,15 @@
 		E422DFB81CEF894F0047D7A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E422DFB71CEF894F0047D7A4 /* SilhouetteCam.app */,
+				E422DFB71CEF894F0047D7A4 /* ThereminiOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E422DFB91CEF894F0047D7A4 /* SilhouetteCam */ = {
+		E422DFB91CEF894F0047D7A4 /* ThereminiOS */ = {
 			isa = PBXGroup;
 			children = (
+				A369C77C1FA90CFD003857F2 /* Synthesizer */,
 				A39086DD1FA1217800153DFB /* ghost.png */,
 				E422DFCD1CEF8AF50047D7A4 /* AppDelegate.swift */,
 				E422DFCC1CEF8AF50047D7A4 /* CameraViewController.swift */,
@@ -139,17 +276,17 @@
 				2633CF1C1E7C65D500FC80E1 /* DepthToGrayscaleConverter.swift */,
 				A39086DB1FA11EB800153DFB /* DepthUtility.swift */,
 				261FA1F61E945EEA00BE8D47 /* VideoMixer.swift */,
-				267ED84F1ED7965B00898078 /* minMaxFromBuffer.h */,
-				267ED84E1ED7965B00898078 /* minMaxFromBuffer.m */,
+				267ED84F1ED7965B00898078 /* averageFromDepthPixelBuffer.h */,
+				267ED84E1ED7965B00898078 /* averageFromDepthPixelBuffer.m */,
 				A3FE8B871FA7999A0024D117 /* IntoDarknessFilter.swift */,
 				2672370F1E79BFD1003D2EAA /* Shaders */,
 				E422DFBE1CEF894F0047D7A4 /* Main.storyboard */,
 				E422DFC11CEF894F0047D7A4 /* Assets.xcassets */,
 				E422DFC31CEF894F0047D7A4 /* LaunchScreen.storyboard */,
 				E422DFC61CEF894F0047D7A4 /* Info.plist */,
-				267ED84D1ED7965A00898078 /* SilhouetteCam-Bridging-Header.h */,
+				267ED84D1ED7965A00898078 /* ThereminiOS-Bridging-Header.h */,
 			);
-			path = SilhouetteCam;
+			path = ThereminiOS;
 			sourceTree = "<group>";
 		};
 		F338657CC0FEDC6E66F03A1D /* LICENSE */ = {
@@ -164,9 +301,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E422DFB61CEF894F0047D7A4 /* SilhouetteCam */ = {
+		E422DFB61CEF894F0047D7A4 /* ThereminiOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E422DFC91CEF894F0047D7A4 /* Build configuration list for PBXNativeTarget "SilhouetteCam" */;
+			buildConfigurationList = E422DFC91CEF894F0047D7A4 /* Build configuration list for PBXNativeTarget "ThereminiOS" */;
 			buildPhases = (
 				E422DFB31CEF894F0047D7A4 /* Sources */,
 				E422DFB41CEF894F0047D7A4 /* Frameworks */,
@@ -176,9 +313,9 @@
 			);
 			dependencies = (
 			);
-			name = SilhouetteCam;
+			name = ThereminiOS;
 			productName = AVCamPhotoFilter;
-			productReference = E422DFB71CEF894F0047D7A4 /* SilhouetteCam.app */;
+			productReference = E422DFB71CEF894F0047D7A4 /* ThereminiOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -200,7 +337,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E422DFB21CEF894F0047D7A4 /* Build configuration list for PBXProject "SilhouetteCam" */;
+			buildConfigurationList = E422DFB21CEF894F0047D7A4 /* Build configuration list for PBXProject "ThereminiOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -213,7 +350,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E422DFB61CEF894F0047D7A4 /* SilhouetteCam */,
+				E422DFB61CEF894F0047D7A4 /* ThereminiOS */,
 			);
 		};
 /* End PBXProject section */
@@ -237,21 +374,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A369C7B51FA90D66003857F2 /* CAXException.cpp in Sources */,
+				A369C7A81FA90D4B003857F2 /* VWWNormalizedSynthesizer.mm in Sources */,
+				A369C7A91FA90D4E003857F2 /* VWWSynthesizer.mm in Sources */,
+				A369C7AD1FA90D59003857F2 /* VWWSynthesizerEffectNoteKey.m in Sources */,
+				A369C7B11FA90D5F003857F2 /* VWWSynthesizerInputAxis.mm in Sources */,
 				E4E160DB1D00979000C83A5A /* FilterRenderer.swift in Sources */,
 				261FA1F71E945EEA00BE8D47 /* VideoMixer.swift in Sources */,
 				261FA1F91E94641700BE8D47 /* Mixer.metal in Sources */,
+				A369C7B21FA90D5F003857F2 /* VWWSynthesizerInputs.mm in Sources */,
 				2608B7DB1E70937A00A7310F /* RosyMetalRenderer.swift in Sources */,
 				E4E160DD1D0099F100C83A5A /* RosyCIRenderer.swift in Sources */,
+				A369C7AE1FA90D59003857F2 /* VWWSynthesizerNotes.m in Sources */,
+				A369C7B41FA90D66003857F2 /* CAStreamBasicDescription.cpp in Sources */,
 				E4A8A1421CF6188A006823AB /* PassThrough.metal in Sources */,
 				A39086DC1FA11EB800153DFB /* DepthUtility.swift in Sources */,
+				A369C7B01FA90D5F003857F2 /* VWWSynthesizerInput.mm in Sources */,
 				E422DFCF1CEF8AF50047D7A4 /* AppDelegate.swift in Sources */,
-				267ED8501ED7974A00898078 /* minMaxFromBuffer.m in Sources */,
+				267ED8501ED7974A00898078 /* averageFromDepthPixelBuffer.m in Sources */,
+				A369C7AB1FA90D59003857F2 /* VWWSynthesizerAV.m in Sources */,
 				2672370C1E79BF6E003D2EAA /* RosyEffect.metal in Sources */,
 				2633CF1D1E7C65D500FC80E1 /* DepthToGrayscaleConverter.swift in Sources */,
 				2672370E1E79BFC0003D2EAA /* DepthToGrayscale.metal in Sources */,
+				A369C7AA1FA90D4E003857F2 /* VWWSynthesizerGroup.m in Sources */,
 				A3FE8B881FA7999A0024D117 /* IntoDarknessFilter.swift in Sources */,
 				E46129041CF4C0B8004FE176 /* PreviewMetalView.swift in Sources */,
 				E422DFCE1CEF8AF50047D7A4 /* CameraViewController.swift in Sources */,
+				A369C7AF1FA90D5F003857F2 /* VWWSynthesizerFileSystem.m in Sources */,
+				A369C7B31FA90D66003857F2 /* CADebugMacros.cpp in Sources */,
+				A369C7AC1FA90D59003857F2 /* VWWSynthesizerC.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,18 +533,18 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = Z3653WQFXU;
-				INFOPLIST_FILE = SilhouetteCam/Info.plist;
+				INFOPLIST_FILE = ThereminiOS/Info.plist;
 				INSTALL_PATH = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_LANGUAGE_REVISION = UseDeploymentTarget;
 				MTL_OPTIMIZATION_LEVEL = 0;
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SilhouetteCam${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.ThereminiOS${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "SilhouetteCam/SilhouetteCam-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ThereminiOS/ThereminiOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -406,17 +557,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = Z3653WQFXU;
-				INFOPLIST_FILE = SilhouetteCam/Info.plist;
+				INFOPLIST_FILE = ThereminiOS/Info.plist;
 				INSTALL_PATH = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_LANGUAGE_REVISION = UseDeploymentTarget;
 				MTL_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SilhouetteCam${SAMPLE_CODE_DISAMBIGUATOR}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.ThereminiOS${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "SilhouetteCam/SilhouetteCam-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ThereminiOS/ThereminiOS-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -424,7 +575,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E422DFB21CEF894F0047D7A4 /* Build configuration list for PBXProject "SilhouetteCam" */ = {
+		E422DFB21CEF894F0047D7A4 /* Build configuration list for PBXProject "ThereminiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E422DFC71CEF894F0047D7A4 /* Debug */,
@@ -433,7 +584,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E422DFC91CEF894F0047D7A4 /* Build configuration list for PBXNativeTarget "SilhouetteCam" */ = {
+		E422DFC91CEF894F0047D7A4 /* Build configuration list for PBXNativeTarget "ThereminiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E422DFCA1CEF894F0047D7A4 /* Debug */,
