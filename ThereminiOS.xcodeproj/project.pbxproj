@@ -7,16 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2608B7DB1E70937A00A7310F /* RosyMetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608B7DA1E70937A00A7310F /* RosyMetalRenderer.swift */; };
-		261FA1F71E945EEA00BE8D47 /* VideoMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261FA1F61E945EEA00BE8D47 /* VideoMixer.swift */; };
 		261FA1F91E94641700BE8D47 /* Mixer.metal in Sources */ = {isa = PBXBuildFile; fileRef = 261FA1F81E94641700BE8D47 /* Mixer.metal */; };
-		2633CF1D1E7C65D500FC80E1 /* DepthToGrayscaleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2633CF1C1E7C65D500FC80E1 /* DepthToGrayscaleConverter.swift */; };
 		2672370C1E79BF6E003D2EAA /* RosyEffect.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2672370B1E79BF6E003D2EAA /* RosyEffect.metal */; };
 		2672370E1E79BFC0003D2EAA /* DepthToGrayscale.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2672370D1E79BFBF003D2EAA /* DepthToGrayscale.metal */; };
 		267ED8501ED7974A00898078 /* averageFromDepthPixelBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 267ED84E1ED7965B00898078 /* averageFromDepthPixelBuffer.m */; };
 		A353E8EC1F8E97FE006E18D2 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A353E8E91F8E97FE006E18D2 /* Metal.framework */; };
 		A353E8ED1F8E97FE006E18D2 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A353E8EA1F8E97FE006E18D2 /* MetalKit.framework */; };
 		A353E8EE1F8E97FE006E18D2 /* MetalPerformanceShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A353E8EB1F8E97FE006E18D2 /* MetalPerformanceShaders.framework */; };
+		A358B3B71FACF628001D447A /* DepthUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A358B3B61FACF628001D447A /* DepthUtility.swift */; };
 		A369C7791FA90B1D003857F2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A369C7781FA90B1D003857F2 /* AudioToolbox.framework */; };
 		A369C77B1FA90B25003857F2 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A369C77A1FA90B25003857F2 /* CoreAudio.framework */; };
 		A369C7A81FA90D4B003857F2 /* VWWNormalizedSynthesizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A369C7A11FA90CFD003857F2 /* VWWNormalizedSynthesizer.mm */; };
@@ -33,26 +31,18 @@
 		A369C7B31FA90D66003857F2 /* CADebugMacros.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A369C77F1FA90CFD003857F2 /* CADebugMacros.cpp */; };
 		A369C7B41FA90D66003857F2 /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A369C7831FA90CFD003857F2 /* CAStreamBasicDescription.cpp */; };
 		A369C7B51FA90D66003857F2 /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A369C7851FA90CFD003857F2 /* CAXException.cpp */; };
-		A39086DC1FA11EB800153DFB /* DepthUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39086DB1FA11EB800153DFB /* DepthUtility.swift */; };
-		A39086DE1FA1267300153DFB /* ghost.png in Resources */ = {isa = PBXBuildFile; fileRef = A39086DD1FA1217800153DFB /* ghost.png */; };
-		A3FE8B881FA7999A0024D117 /* IntoDarknessFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FE8B871FA7999A0024D117 /* IntoDarknessFilter.swift */; };
 		E422DFC01CEF894F0047D7A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E422DFBE1CEF894F0047D7A4 /* Main.storyboard */; };
 		E422DFC21CEF894F0047D7A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E422DFC11CEF894F0047D7A4 /* Assets.xcassets */; };
 		E422DFC51CEF894F0047D7A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E422DFC31CEF894F0047D7A4 /* LaunchScreen.storyboard */; };
 		E422DFCE1CEF8AF50047D7A4 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E422DFCC1CEF8AF50047D7A4 /* CameraViewController.swift */; };
 		E422DFCF1CEF8AF50047D7A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E422DFCD1CEF8AF50047D7A4 /* AppDelegate.swift */; };
-		E46129041CF4C0B8004FE176 /* PreviewMetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46129031CF4C0B8004FE176 /* PreviewMetalView.swift */; };
 		E4A8A1421CF6188A006823AB /* PassThrough.metal in Sources */ = {isa = PBXBuildFile; fileRef = E4A8A1411CF6188A006823AB /* PassThrough.metal */; };
 		E4E160DB1D00979000C83A5A /* FilterRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E160DA1D00979000C83A5A /* FilterRenderer.swift */; };
-		E4E160DD1D0099F100C83A5A /* RosyCIRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E160DC1D0099F100C83A5A /* RosyCIRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		07AD6A98FAE41685AA0BF436 /* SampleCode.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
-		2608B7DA1E70937A00A7310F /* RosyMetalRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosyMetalRenderer.swift; sourceTree = "<group>"; };
-		261FA1F61E945EEA00BE8D47 /* VideoMixer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoMixer.swift; sourceTree = "<group>"; };
 		261FA1F81E94641700BE8D47 /* Mixer.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Mixer.metal; sourceTree = "<group>"; };
-		2633CF1C1E7C65D500FC80E1 /* DepthToGrayscaleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthToGrayscaleConverter.swift; sourceTree = "<group>"; };
 		2672370B1E79BF6E003D2EAA /* RosyEffect.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = RosyEffect.metal; sourceTree = "<group>"; };
 		2672370D1E79BFBF003D2EAA /* DepthToGrayscale.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = DepthToGrayscale.metal; sourceTree = "<group>"; };
 		267ED84D1ED7965A00898078 /* ThereminiOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ThereminiOS-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -61,6 +51,8 @@
 		A353E8E91F8E97FE006E18D2 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		A353E8EA1F8E97FE006E18D2 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		A353E8EB1F8E97FE006E18D2 /* MetalPerformanceShaders.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalPerformanceShaders.framework; path = System/Library/Frameworks/MetalPerformanceShaders.framework; sourceTree = SDKROOT; };
+		A358B3B61FACF628001D447A /* DepthUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthUtility.swift; sourceTree = "<group>"; };
+		A358B3B81FACF780001D447A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		A369C7781FA90B1D003857F2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A369C77A1FA90B25003857F2 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		A369C77F1FA90CFD003857F2 /* CADebugMacros.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugMacros.cpp; sourceTree = "<group>"; };
@@ -100,9 +92,6 @@
 		A369C7A51FA90CFD003857F2 /* VWWSynthesizerGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWSynthesizerGroup.m; sourceTree = "<group>"; };
 		A369C7A61FA90CFD003857F2 /* VWWSynthesizerTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerTypes.h; sourceTree = "<group>"; };
 		A369C7B61FA90D82003857F2 /* VWWUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VWWUtilities.h; path = ../../../Synthesizer/Synthesizer/VWWUtilities.h; sourceTree = "<group>"; };
-		A39086DB1FA11EB800153DFB /* DepthUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthUtility.swift; sourceTree = "<group>"; };
-		A39086DD1FA1217800153DFB /* ghost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ghost.png; sourceTree = "<group>"; };
-		A3FE8B871FA7999A0024D117 /* IntoDarknessFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntoDarknessFilter.swift; sourceTree = "<group>"; };
 		C221CC7AB4DD7C36524EC109 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		E414FC6C1D5921FD0007C979 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E422DFB71CEF894F0047D7A4 /* ThereminiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThereminiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,10 +101,8 @@
 		E422DFC61CEF894F0047D7A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E422DFCC1CEF8AF50047D7A4 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		E422DFCD1CEF8AF50047D7A4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E46129031CF4C0B8004FE176 /* PreviewMetalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewMetalView.swift; sourceTree = "<group>"; };
 		E4A8A1411CF6188A006823AB /* PassThrough.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = PassThrough.metal; sourceTree = "<group>"; };
 		E4E160DA1D00979000C83A5A /* FilterRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterRenderer.swift; sourceTree = "<group>"; };
-		E4E160DC1D0099F100C83A5A /* RosyCIRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosyCIRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +143,7 @@
 		A353E8E81F8E97FE006E18D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A358B3B81FACF780001D447A /* CoreVideo.framework */,
 				A369C77A1FA90B25003857F2 /* CoreAudio.framework */,
 				A369C7781FA90B1D003857F2 /* AudioToolbox.framework */,
 				A353E8E91F8E97FE006E18D2 /* Metal.framework */,
@@ -266,19 +254,12 @@
 			isa = PBXGroup;
 			children = (
 				A369C77C1FA90CFD003857F2 /* Synthesizer */,
-				A39086DD1FA1217800153DFB /* ghost.png */,
 				E422DFCD1CEF8AF50047D7A4 /* AppDelegate.swift */,
 				E422DFCC1CEF8AF50047D7A4 /* CameraViewController.swift */,
-				E46129031CF4C0B8004FE176 /* PreviewMetalView.swift */,
+				A358B3B61FACF628001D447A /* DepthUtility.swift */,
 				E4E160DA1D00979000C83A5A /* FilterRenderer.swift */,
-				E4E160DC1D0099F100C83A5A /* RosyCIRenderer.swift */,
-				2608B7DA1E70937A00A7310F /* RosyMetalRenderer.swift */,
-				2633CF1C1E7C65D500FC80E1 /* DepthToGrayscaleConverter.swift */,
-				A39086DB1FA11EB800153DFB /* DepthUtility.swift */,
-				261FA1F61E945EEA00BE8D47 /* VideoMixer.swift */,
 				267ED84F1ED7965B00898078 /* averageFromDepthPixelBuffer.h */,
 				267ED84E1ED7965B00898078 /* averageFromDepthPixelBuffer.m */,
-				A3FE8B871FA7999A0024D117 /* IntoDarknessFilter.swift */,
 				2672370F1E79BFD1003D2EAA /* Shaders */,
 				E422DFBE1CEF894F0047D7A4 /* Main.storyboard */,
 				E422DFC11CEF894F0047D7A4 /* Assets.xcassets */,
@@ -360,7 +341,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A39086DE1FA1267300153DFB /* ghost.png in Resources */,
 				E422DFC51CEF894F0047D7A4 /* LaunchScreen.storyboard in Resources */,
 				E422DFC21CEF894F0047D7A4 /* Assets.xcassets in Resources */,
 				E422DFC01CEF894F0047D7A4 /* Main.storyboard in Resources */,
@@ -380,27 +360,21 @@
 				A369C7AD1FA90D59003857F2 /* VWWSynthesizerEffectNoteKey.m in Sources */,
 				A369C7B11FA90D5F003857F2 /* VWWSynthesizerInputAxis.mm in Sources */,
 				E4E160DB1D00979000C83A5A /* FilterRenderer.swift in Sources */,
-				261FA1F71E945EEA00BE8D47 /* VideoMixer.swift in Sources */,
 				261FA1F91E94641700BE8D47 /* Mixer.metal in Sources */,
 				A369C7B21FA90D5F003857F2 /* VWWSynthesizerInputs.mm in Sources */,
-				2608B7DB1E70937A00A7310F /* RosyMetalRenderer.swift in Sources */,
-				E4E160DD1D0099F100C83A5A /* RosyCIRenderer.swift in Sources */,
 				A369C7AE1FA90D59003857F2 /* VWWSynthesizerNotes.m in Sources */,
 				A369C7B41FA90D66003857F2 /* CAStreamBasicDescription.cpp in Sources */,
 				E4A8A1421CF6188A006823AB /* PassThrough.metal in Sources */,
-				A39086DC1FA11EB800153DFB /* DepthUtility.swift in Sources */,
 				A369C7B01FA90D5F003857F2 /* VWWSynthesizerInput.mm in Sources */,
 				E422DFCF1CEF8AF50047D7A4 /* AppDelegate.swift in Sources */,
 				267ED8501ED7974A00898078 /* averageFromDepthPixelBuffer.m in Sources */,
 				A369C7AB1FA90D59003857F2 /* VWWSynthesizerAV.m in Sources */,
 				2672370C1E79BF6E003D2EAA /* RosyEffect.metal in Sources */,
-				2633CF1D1E7C65D500FC80E1 /* DepthToGrayscaleConverter.swift in Sources */,
 				2672370E1E79BFC0003D2EAA /* DepthToGrayscale.metal in Sources */,
 				A369C7AA1FA90D4E003857F2 /* VWWSynthesizerGroup.m in Sources */,
-				A3FE8B881FA7999A0024D117 /* IntoDarknessFilter.swift in Sources */,
-				E46129041CF4C0B8004FE176 /* PreviewMetalView.swift in Sources */,
 				E422DFCE1CEF8AF50047D7A4 /* CameraViewController.swift in Sources */,
 				A369C7AF1FA90D5F003857F2 /* VWWSynthesizerFileSystem.m in Sources */,
+				A358B3B71FACF628001D447A /* DepthUtility.swift in Sources */,
 				A369C7B31FA90D66003857F2 /* CADebugMacros.cpp in Sources */,
 				A369C7AC1FA90D59003857F2 /* VWWSynthesizerC.mm in Sources */,
 			);
