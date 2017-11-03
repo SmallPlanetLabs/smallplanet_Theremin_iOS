@@ -15,6 +15,7 @@
 		A353E8ED1F8E97FE006E18D2 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A353E8EA1F8E97FE006E18D2 /* MetalKit.framework */; };
 		A353E8EE1F8E97FE006E18D2 /* MetalPerformanceShaders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A353E8EB1F8E97FE006E18D2 /* MetalPerformanceShaders.framework */; };
 		A358B3B71FACF628001D447A /* DepthUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A358B3B61FACF628001D447A /* DepthUtility.swift */; };
+		A358B3BA1FAD1795001D447A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A358B3B91FAD1795001D447A /* README.md */; };
 		A369C7791FA90B1D003857F2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A369C7781FA90B1D003857F2 /* AudioToolbox.framework */; };
 		A369C77B1FA90B25003857F2 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A369C77A1FA90B25003857F2 /* CoreAudio.framework */; };
 		A369C7A81FA90D4B003857F2 /* VWWNormalizedSynthesizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A369C7A11FA90CFD003857F2 /* VWWNormalizedSynthesizer.mm */; };
@@ -53,6 +54,7 @@
 		A353E8EB1F8E97FE006E18D2 /* MetalPerformanceShaders.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalPerformanceShaders.framework; path = System/Library/Frameworks/MetalPerformanceShaders.framework; sourceTree = SDKROOT; };
 		A358B3B61FACF628001D447A /* DepthUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthUtility.swift; sourceTree = "<group>"; };
 		A358B3B81FACF780001D447A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		A358B3B91FAD1795001D447A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A369C7781FA90B1D003857F2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A369C77A1FA90B25003857F2 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		A369C77F1FA90CFD003857F2 /* CADebugMacros.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugMacros.cpp; sourceTree = "<group>"; };
@@ -93,7 +95,6 @@
 		A369C7A61FA90CFD003857F2 /* VWWSynthesizerTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWSynthesizerTypes.h; sourceTree = "<group>"; };
 		A369C7B61FA90D82003857F2 /* VWWUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VWWUtilities.h; path = ../../../Synthesizer/Synthesizer/VWWUtilities.h; sourceTree = "<group>"; };
 		C221CC7AB4DD7C36524EC109 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		E414FC6C1D5921FD0007C979 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E422DFB71CEF894F0047D7A4 /* ThereminiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThereminiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E422DFBF1CEF894F0047D7A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E422DFC11CEF894F0047D7A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -233,7 +234,6 @@
 		E422DFAE1CEF894F0047D7A4 = {
 			isa = PBXGroup;
 			children = (
-				E414FC6C1D5921FD0007C979 /* README.md */,
 				E422DFB91CEF894F0047D7A4 /* ThereminiOS */,
 				E422DFB81CEF894F0047D7A4 /* Products */,
 				8F7DEDF83CEB2358D1CCC092 /* Configuration */,
@@ -253,6 +253,7 @@
 		E422DFB91CEF894F0047D7A4 /* ThereminiOS */ = {
 			isa = PBXGroup;
 			children = (
+				A358B3B91FAD1795001D447A /* README.md */,
 				A369C77C1FA90CFD003857F2 /* Synthesizer */,
 				E422DFCD1CEF8AF50047D7A4 /* AppDelegate.swift */,
 				E422DFCC1CEF8AF50047D7A4 /* CameraViewController.swift */,
@@ -343,6 +344,7 @@
 			files = (
 				E422DFC51CEF894F0047D7A4 /* LaunchScreen.storyboard in Resources */,
 				E422DFC21CEF894F0047D7A4 /* Assets.xcassets in Resources */,
+				A358B3BA1FAD1795001D447A /* README.md in Resources */,
 				E422DFC01CEF894F0047D7A4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
