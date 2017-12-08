@@ -43,7 +43,7 @@ float averageFromDepthPixelBuffer(CVPixelBufferRef pixelBuffer, MTLPixelFormat p
     
     float average = total/(height * width);
     
-    NSLog(@"average = %.2f", average);
+//    NSLog(@"average = %.2f", average);
     
     CVPixelBufferUnlockBaseAddress(pixelBuffer, kCVPixelBufferLock_ReadOnly);
     

@@ -37,22 +37,20 @@ class CameraViewController: UIViewController, AVCaptureDepthDataOutputDelegate {
     
     private let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera], mediaType: .video, position: .unspecified)
     
-    ///------
-    
     private var oscillators = [VWWSynthesizer]()
  
-    //------
-    
     @IBOutlet weak private var waveTypeSlider : UISlider!
     @IBOutlet weak private var waveTypeLabel : UILabel!
+
+    private var currentBaseFrequency : Float = 0.0
     
     // MARK: - View Controller Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        waveTypeSlider.maximumValue = 1;
-        waveTypeSlider.minimumValue = 0;
+        waveTypeSlider.maximumValue = 1
+        waveTypeSlider.minimumValue = 0
         
         for _ in 0...3 {
             let synthesizer = VWWSynthesizer(amplitude: 0.2, frequencyLeft: 100, frequencyRight: 100)
@@ -181,7 +179,6 @@ class CameraViewController: UIViewController, AVCaptureDepthDataOutputDelegate {
         NSLog("slider.value = \(slider.value)")
         
         var waveTypes = [VWWWaveTypeSine, VWWWaveTypeSawtooth, VWWWaveTypeSquare, VWWWaveTypeTriangle]
-        let waveIncrement = 1/waveTypes.count;
         
         let currentWaveType = self.oscillators.first!.waveType()
         let newWaveIndex = Int(floor(Float(waveTypes.count) * slider.value))
@@ -216,10 +213,7 @@ class CameraViewController: UIViewController, AVCaptureDepthDataOutputDelegate {
     // MARK: - Depth Data Output Delegate
     
     func depthDataOutput(_ depthDataOutput: AVCaptureDepthDataOutput, didOutput depthData: AVDepthData, timestamp: CMTime, connection: AVCaptureConnection) {
-  
-        
         NSLog("depthData output")
-        
         processDepth(depthData: depthData)
     }
     
@@ -227,31 +221,13 @@ class CameraViewController: UIViewController, AVCaptureDepthDataOutputDelegate {
         if !renderingEnabled {
             return
         }
-        
         if !depthVisualizationEnabled {
             return
         }
-        
-//        if !videoDepthConverter.isPrepared {
-//            /*
-//             outputRetainedBufferCountHint is the number of pixel buffers we expect to hold on to from the renderer. This value informs the renderer
-//             how to size its buffer pool and how many pixel buffers to preallocate. Allow 2 frames of latency to cover the dispatch_async call.
-//             */
-//            var depthFormatDescription: CMFormatDescription?
-//            CMVideoFormatDescriptionCreateForImageBuffer(kCFAllocatorDefault, depthData.depthDataMap, &depthFormatDescription)
-//            videoDepthConverter.prepare(with: depthFormatDescription!, outputRetainedBufferCountHint: 2)
-//        }
-//
-//        guard let depthPixelBuffer = videoDepthConverter.render(pixelBuffer: depthData.depthDataMap) else {
-//            print("Unable to process depth")
-//            return
-//        }
-
         guard let pixelFormat = DepthUtlity.pixelFormatForDepthPixelBuffer(depthDataMap: depthData.depthDataMap) else {
             return;
         }
 
-        
         let depthA = averageFromDepthPixelBuffer(depthData.depthDataMap, pixelFormat)
         
         let maxDepth : Float = 3.0;
@@ -261,39 +237,92 @@ class CameraViewController: UIViewController, AVCaptureDepthDataOutputDelegate {
 
             // make between 0 and 1
             let normalizedDepthValue = (depthA - minDepth)/(maxDepth - minDepth);
-
-            NSLog("normalized = %.2f", normalizedDepthValue);
-
+//            NSLog("normalized = %.2f", normalizedDepthValue);
+//            NSLog("averageDepth = \(averageDepth)")
+            
             let maxFrequency : Float = 3000;
             let minimumFrequncy : Float = 100;
 
             let newFundamental = ((maxFrequency - minimumFrequncy) * normalizedDepthValue) + minimumFrequncy;
-            var newFrequency = VWWSynthesizerNotes.getClosestNote(forFrequency: newFundamental, in: VWWKeyTypeCMajor);
-
+            let newFrequency = VWWSynthesizerNotes.getClosestNote(forFrequency: newFundamental, in: VWWKeyTypeCMajor);
+        
+            // transition pitch evenly to avoid jumpyness between pitch changes..
+//            let duration = CameraViewController.pitchTransitionDuration(currentBaseFrequency, newFrequency);
+//            transitionPitch(startingBaseFrequency: currentBaseFrequency, finalBaseFrequency: newFrequency, duration: duration);
+        
             NSLog("newFrequency = \(newFrequency)");
-            
-            var i = 0;
-            for synthesizer : VWWSynthesizer in self.oscillators {
-
-                synthesizer.setMuted(false);
-                
-                if (i == 1) {
-                    newFrequency = newFrequency * (5/4);
-                } else if (i == 2) {
-                    newFrequency = newFrequency * (3/2);
-                }
-
-                synthesizer.setFrequencyLeft(newFrequency);
-                synthesizer.setFrequencyRight(newFrequency);
-
-                i += 1;
-            }
-
-//            NSLog("averageDepth = \(averageDepth)")
+            setBaseFrequency(baseFrequency: newFrequency)
         } else {
-            for synthesizer : VWWSynthesizer in self.oscillators {
-                synthesizer.setMuted(true);
+//            for synthesizer : VWWSynthesizer in self.oscillators {
+//                synthesizer.setMuted(true);
+//            }
+        }
+    }
+    
+    private var pitchTransitionTimer : Timer?
+    
+    func transitionPitch(startingBaseFrequency:Float, finalBaseFrequency:Float, duration:(TimeInterval)) {
+        
+        if pitchTransitionTimer != nil {
+            pitchTransitionTimer?.invalidate()
+        }
+        
+        let timerIncrement = duration/Double(round(abs(finalBaseFrequency - startingBaseFrequency)));
+        
+        let frequencyIncrementInterval : Float = finalBaseFrequency > startingBaseFrequency ? 20 : -20;
+        let timerMax = Int(abs(finalBaseFrequency - startingBaseFrequency));
+        var repeatCount = 0;
+        pitchTransitionTimer = Timer.scheduledTimer(withTimeInterval: Double(timerIncrement), repeats: true) { [weak self] this in
+        
+            if (repeatCount > timerMax) {
+                this.invalidate()
+                return;
             }
+        
+            self!.setBaseFrequency(baseFrequency: self!.currentBaseFrequency + frequencyIncrementInterval)
+            repeatCount += 1;
+        }
+    }
+    
+    class func pitchTransitionDuration(_ startingBaseFrequency:Float, _ finalBaseFrequency:Float) -> TimeInterval {
+        let difference = abs(finalBaseFrequency - startingBaseFrequency)
+        
+        var duration : TimeInterval = 0.0;
+        if (difference < 100) {
+            duration = 0.1
+        } else if (difference < 500) {
+            duration = 0.15;
+        } else if (difference < 2500) {
+            duration = 0.3;
+        } else if (difference < 5000) {
+            duration = 0.6;
+        }
+        return duration;
+    }
+    
+    func setBaseFrequency(baseFrequency:Float) {
+        
+        currentBaseFrequency = baseFrequency;
+        NSLog("currentBaseFQ = \(currentBaseFrequency)")
+        
+        var newFQ : Float = baseFrequency
+        var i = 0;
+        for synthesizer : VWWSynthesizer in self.oscillators {
+            
+            synthesizer.setMuted(false);
+            
+            if (i == 1) {
+                newFQ = baseFrequency * (5/4);
+            } else if (i == 2) {
+                newFQ = baseFrequency * (3/2);
+            }
+            
+            // glide from old frequncy values to new ones...
+            
+            synthesizer.setFrequencyLeft(newFQ);
+            synthesizer.setFrequencyRight(newFQ);
+            
+            i += 1;
         }
     }
 }
